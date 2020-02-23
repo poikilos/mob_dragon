@@ -5,13 +5,13 @@ dofile(minetest.get_modpath("mobs").."/api.lua")
 ------Dragon-------
 -------------------
 -------------------
-mobs:register_mob("mobpack:dragon", {
+mobs:register_mob("mob_dragon:dragon", {
 	type = "monster",
 	hp_max = 8,
 	collisionbox = {-3, -3, -3, 3, 3, 3},
 	visual = "mesh",
-	mesh = "mobpack_dragon.x",
-	textures = {"mobpack_dragon.png"},
+	mesh = "mob_dragon.b3d",
+	textures = {"mob_dragon.png"},
 	visual_size = {x=5, y=5},
 	makes_footstep_sound = false,
 	view_range = 15,
@@ -40,13 +40,13 @@ mobs:register_mob("mobpack:dragon", {
 	},
 })
 
-minetest.register_craftitem("mobpack:dragon", {
+minetest.register_craftitem("mob_dragon:dragon", {
 	description = "Dragon",
 	inventory_image = "default_wood.png",
-	
+
 	on_place = function(itemstack, placer, pointed_thing)
 		if pointed_thing.above then
-			minetest.env:add_entity(pointed_thing.above, "mobpack:dragon")
+			minetest.env:add_entity(pointed_thing.above, "mob_dragon:dragon")
 			itemstack:take_item()
 		end
 		return itemstack
